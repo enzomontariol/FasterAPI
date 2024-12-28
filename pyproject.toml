@@ -1,15 +1,14 @@
 [tool.poetry]
 name = "faster-api"
 version = "0.1.0"
-description = ""
-authors = ["enzomontariol <enzo.montariol@gmail.com>"]
+description = "FastApiDecoratorBuilder intend to convert a Python function into a FastAPI endpoint using a decorator."
+authors = ["emmaalaoui <emma.alaoui-mhamdi@dauphine.eu>", "brcpaul <paul.bourcereau@dauphine.eu>", "enzomontariol <enzo.montariol@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.13"
 fastapi = "^0.115.6"
 uvicorn = "^0.34.0"
-
 
 [build-system]
 requires = ["poetry-core"]

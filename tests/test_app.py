@@ -67,4 +67,5 @@ def test_test_stock():
     assert response.status_code == 200
     assert response.json() == {"name": "Apple", "price": 150.0}
 
-
+if __name__ == "__main__":
+    app.run()

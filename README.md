@@ -6,18 +6,21 @@ Welcome to the **FastApiDecoratorBuilder** project using **FastAPI**. This proje
 
 ## 📋 Table of Contents
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Unit Tests](#unit-tests)
-- [Project Structure](#project-structure)
+- [Python OOP with FastAPI](#python-oop-with-fastapi)
+  - [📋 Table of Contents](#-table-of-contents)
+  - [🌟 Introduction](#-introduction)
+  - [✨ Features](#-features)
+  - [🔧 Prerequisites](#-prerequisites)
+  - [📦 Installation](#-installation)
+  - [🚀 Usage](#-usage)
+  - [✅ Unit Tests](#-unit-tests)
+  - [📁 Project Structure](#-project-structure)
 ---
 
 ## 🌟 Introduction
 
 The goal of the FastApiDecoratorBuilder project is to design a Python decorator that transforms a Python function into a FastAPI API based on the function and defined configurations.
+You may find the subject [here](docs/Subject.pdf).
 
 ---
 
@@ -46,7 +49,12 @@ Before starting, make sure your environment has the following tools installed:
    cd Python-POO
 
 2. Install the required dependencies:
+    ```bash
     pip install -r requirements.txt
+Or using poetry
+
+    pip install poetry
+    poetry install
 
 ---
 
@@ -65,21 +73,22 @@ pytest tests/
 
 ## 📁 Project Structure
 
-Python-POO/
-│
-├── faster_api/          # Core implementation of the custom API framework
-│   ├── __init__.py
-│   ├── app.py           # Main application logic
-│   └── decorators.py    # Custom decorators for route handling
-│
-├── tests/               # Unit tests for the API
-│   ├── __init__.py
-│   └── test_app.py      # Test cases for routes and functionality
-│
-├── test.py              # Example application using the custom framework
-├── requirements.txt     # Dependencies for the project
-└── README.md            # Project documentation
+![](docs/file_tree.drawio.svg)
 
+.
+├── README.md
+├── Subject.pdf
+├── faster_api
+│   ├── __init__.py
+│   ├── config.py
+│   ├── faster_api.py
+│   └── router.py
+├── pyproject.toml
+├── requirements.txt
+├── test.py
+└── tests
+    ├── __init__.py
+    └── test_app.py
 
 ---
 
