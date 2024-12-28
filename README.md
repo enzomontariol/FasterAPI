@@ -13,7 +13,6 @@ Welcome to the **FastApiDecoratorBuilder** project using **FastAPI**. This proje
 - [Usage](#usage)
 - [Unit Tests](#unit-tests)
 - [Project Structure](#project-structure)
-- [Contributing](#contributing)
 ---
 
 ## 🌟 Introduction
