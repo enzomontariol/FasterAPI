@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+pydantic
+dataclasses; python_version<"3.7"
+pytest
+pytest-asyncio
+httpx
