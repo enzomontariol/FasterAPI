@@ -4,14 +4,14 @@ from typing import Callable, List, Literal, Optional, Any
 import logging
 from functools import wraps
 
+
 class FasterAPIRouter:
 
-    def __init__(self) -> None:
-        """Initialization.
-        """
+    def __init__(self, logging_level=logging.INFO) -> None:
+        """Initialization."""
         self._router = APIRouter()
         self.logger = logging.getLogger("FasterAPIRouter")
-        logging.basicConfig(level=logging.INFO)
+        logging.basicConfig(level=logging_level)
 
     def add_api_route(
         self,
@@ -19,7 +19,7 @@ class FasterAPIRouter:
         func: Callable,
         methods=List[Literal["GET", "POST", "PUT", "DELETE", "PATCH"]],
         middleware: Optional[List[Callable[[Request, Callable], Any]]] = None,
-        **kwargs
+        **kwargs,
     ) -> Callable:
         """Adds an API route to the router with optional middleware.
 
@@ -36,7 +36,7 @@ class FasterAPIRouter:
 
         if path is None:
             path = self.infer_path(func)
-            
+
         self.logger.info(f"Registering path: {path} with methods: {methods}")
 
         @wraps(func)
@@ -59,7 +59,12 @@ class FasterAPIRouter:
                         return response
             return func(*args, **kwargs)
 
-        self._router.add_api_route(path, endpoint=wrapper, methods=methods, **kwargs,)
+        self._router.add_api_route(
+            path,
+            endpoint=wrapper,
+            methods=methods,
+            **kwargs,
+        )
         return func
 
     def route(self, path: str = None, **kwargs) -> Callable:
@@ -72,7 +77,7 @@ class FasterAPIRouter:
         Returns:
             Callable: A decorator function that registers the endpoint function as an API route.
         """
-        
+
         def decorator(func: Callable) -> Callable:
             self.add_api_route(path, func, **kwargs)
             return func

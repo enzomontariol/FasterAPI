@@ -15,7 +15,6 @@ def root():
 def test():
     return {"test": "test"}
 
-# Example of dataclass 
 @dataclass
 class Stock:
     name: str
