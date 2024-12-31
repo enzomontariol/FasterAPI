@@ -98,9 +98,7 @@ To run the unit tests, execute the following command:
 │   └── router.py
 ├── pyproject.toml
 ├── requirements.txt
-├── test.py
 └── tests
-    ├── __init__.py
     └── test_app.py
 
 ---
