@@ -12,6 +12,7 @@ class FasterAPI(FasterAPIRouter):
         super().__init__()
         self._app = FastAPI()
         self._app.router = self._router
+        self._app.setup()
 
     def __new__(cls):
         """Create and return a new instance of the class.

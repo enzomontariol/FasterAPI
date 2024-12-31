@@ -45,8 +45,8 @@ Before starting, make sure your environment has the following tools installed:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/enzomontariol/Python-POO.git
-   cd Python-POO
+   git clone https://github.com/enzomontariol/FasterAPI
+   cd FasterAPI
 
 2. Install the required dependencies:
     ```bash
@@ -60,19 +60,7 @@ Or using poetry
 
 ## 🚀 Usage
 
-Examples of the decorator's usage :
-
-1. Root endpoint :  Returns a welcome message to confirm that the API is running.
-- URL: /
-- Method: GET
-
-2. Add numbers : Performs the addition of two numbers provided as query parameters and returns the result.
-- URL: /add?a=x&b=y
-- Method: GET
-
-3. Test Stock : Handles a POST request with stock data (name and price) and returns the received information as a response.
-- URL: /test-stock
-- Method: POST
+[See more.](./docs/main.md)
 
 ---
 
