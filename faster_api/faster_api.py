@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from .router import FasterAPIRouter
-import uvicorn
 
 class FasterAPI(FasterAPIRouter):
     """FasterAPI is a singleton class that create and run a FastAPI application.
