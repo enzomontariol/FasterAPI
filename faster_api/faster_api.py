@@ -1,8 +1,6 @@
 from fastapi import FastAPI
 from .router import FasterAPIRouter
-from .config import FasterAPIConfig
 import uvicorn
-
 
 class FasterAPI(FasterAPIRouter):
     """FasterAPI is a singleton class that create and run a FastAPI application.
@@ -14,8 +12,7 @@ class FasterAPI(FasterAPIRouter):
         """
         super().__init__()
         self._app = FastAPI()
-        self._routers = [self._router]
-        self._config = FasterAPIConfig()
+        self._app.router = self._router
 
     def __new__(cls):
         """Create and return a new instance of the class.
@@ -30,8 +27,6 @@ class FasterAPI(FasterAPIRouter):
             cls._instance = super().__new__(cls)
         return cls._instance
     
-    def run(self):
-        """Method to run the service.
-        """
-        self._app.include_router(self._router)
-        uvicorn.run(self._app, host=self._config._host, port=self._config._port)
+    async def __call__(self, scope, receive, send):
+        """Handle ASGI calls."""
+        await self._app(scope, receive, send)

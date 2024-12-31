@@ -2,6 +2,7 @@ from fastapi import APIRouter, Request
 from fastapi.responses import JSONResponse
 from typing import Callable, List, Literal, Optional, Any
 import logging
+from functools import wraps
 
 class FasterAPIRouter:
 
@@ -38,11 +39,13 @@ class FasterAPIRouter:
             
         self.logger.info(f"Registering path: {path} with methods: {methods}")
 
-        async def wrapper(request: Request, *args, **kwargs):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            request = kwargs.get("request")
             if middleware:
                 for mw in middleware:
                     try:
-                        response = await mw(request, func)
+                        response = mw(request, func)
                     except Exception as e:
                         return JSONResponse(
                             status_code=500,
@@ -54,9 +57,9 @@ class FasterAPIRouter:
 
                     if response:
                         return response
-            return await func(*args, **kwargs)
+            return func(*args, **kwargs)
 
-        self._router.add_api_route(path, endpoint=wrapper, methods=methods, **kwargs)
+        self._router.add_api_route(path, endpoint=wrapper, methods=methods, **kwargs,)
         return func
 
     def route(self, path: str = None, **kwargs) -> Callable:

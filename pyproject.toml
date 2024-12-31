@@ -6,7 +6,7 @@ authors = ["emmaalaoui <emma.alaoui-mhamdi@dauphine.eu>", "brcpaul <paul.bourcer
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.13"
+python = "^3.11"
 fastapi = "^0.115.6"
 uvicorn = "^0.34.0"
 
