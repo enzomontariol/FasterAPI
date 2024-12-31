@@ -80,7 +80,7 @@ Examples of the decorator's usage :
 
 To run the unit tests, execute the following command:
 
-    pytest tests/
+    python tests/test_app.py
 
 ---
 
